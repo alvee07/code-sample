@@ -10,5 +10,11 @@
 </div>
 @foreach (var item in Model.Employees)
 {
-    <p>@item.EmployeeName</p>
+    <div>
+        <p>
+            @item.EmployeeName<br>
+            @item.EmployeeAge<br>
+            @item.EmployeeSalary<br>
+        </p>
+    </div>
 }
