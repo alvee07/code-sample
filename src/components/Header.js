@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types';
 
 export class Header extends Component {
     constructor(props) {
@@ -13,18 +14,20 @@ export class Header extends Component {
     static defaultProps ={
         title : 'Welcome'
     }
-    
+
     render() {
         const {title} = this.props
         console.log(this.props)
         return (
             <header>
-                <h1>{title} to React UI page</h1>
+                <h1>{title} to React UI</h1>
             </header>
         )
     }
 }
 
-
+Header.propTypes ={
+    title: PropTypes.string
+}
 
 export default Header
