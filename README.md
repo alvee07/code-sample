@@ -8,6 +8,11 @@ In the project directory, you can run:
 
 ### `npm start`
 
+package.json changed to "start": "BROWSER=google-chrome react-scripts start",
+for development purpose
+
+npx used to create the application
+
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
