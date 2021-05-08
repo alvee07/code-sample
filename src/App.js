@@ -1,11 +1,14 @@
-import Navbar from "./components/Navbar";
+import Navigation from "./components/Navigation";
+import "bootstrap/dist/css/bootstrap.min.css";
+import React from "react";
 
 process.title = "react_ui";
 function App() {
   return (
-    <div className="container-fluid">
-      <Navbar />
-    </div>
+    <>
+      <Navigation />
+      <div className="container-fluid"></div>
+    </>
   );
 }
 
