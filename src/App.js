@@ -5,10 +5,10 @@ import React from "react";
 process.title = "react_ui";
 function App() {
   return (
-    <>
+    <React.Fragment>
       <Navigation />
       <div className="container-fluid"></div>
-    </>
+    </React.Fragment>
   );
 }
 
