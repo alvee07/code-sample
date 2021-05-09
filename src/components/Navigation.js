@@ -10,18 +10,18 @@ export class Navigation extends Component {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="mr-auto">
-            <Nav.Link href="#features" className={spaceBetweenNavItems}>
-              About Me
+            <Nav.Link href="#about" className={spaceBetweenNavItems}>
+              About
             </Nav.Link>
-            <Nav.Link href="#pricing" className={spaceBetweenNavItems}>
+            <Nav.Link href="#favourite" className={spaceBetweenNavItems}>
               Favourite
             </Nav.Link>
           </Nav>
           <Nav className="ml-auto">
-            <Nav.Link href="#deets" className={spaceBetweenNavItems}>
+            <Nav.Link href="#experience" className={spaceBetweenNavItems}>
               Experience
             </Nav.Link>
-            <Nav.Link href="#memes" className={spaceBetweenNavItems}>
+            <Nav.Link href="#example" className={spaceBetweenNavItems}>
               Example
             </Nav.Link>
             <NavDropdown title="In Progress" id="collasible-nav-dropdown">
