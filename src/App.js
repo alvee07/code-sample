@@ -8,6 +8,7 @@ import Favourite from "./components/Favourite";
 import Experience from "./components/Experience";
 import Example from "./components/Example";
 import Signup from "./components/Signup";
+import Body from "./components/Body";
 
 process.title = "react_ui";
 function App() {
@@ -17,7 +18,7 @@ function App() {
         <Header />
         <Container fluid={true}>
           <Switch>
-            <Route exact path="/" component={Signup} />
+            <Route exact path="/" component={Body} />
             <Route path="/about" component={About} />
             <Route path="/favourite" component={Favourite} />
             <Route path="/experience" component={Experience} />

@@ -13,7 +13,7 @@ export class Signup extends Component {
 
   submitHandler(event) {
     event.preventDefault();
-    console.log("Submit but not reload");
+    console.log("Submit but not reload ");
   }
 
   emailChangeHandler(event) {
@@ -22,7 +22,7 @@ export class Signup extends Component {
 
   render() {
     return (
-      <div>
+      <React.Fragment>
         <Form onSubmit={this.submitHandler.bind(this)}>
           <Form.Group controlId="formBasicEmail">
             <Form.Label>Email address</Form.Label>
@@ -47,7 +47,7 @@ export class Signup extends Component {
             Submit
           </Button>
         </Form>
-      </div>
+      </React.Fragment>
     );
   }
 }

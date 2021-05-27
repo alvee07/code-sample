@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
+import Signup from "./Signup";
 
 class Body extends Component {
   // rce
@@ -25,14 +26,15 @@ class Body extends Component {
 
   render() {
     return (
-      <div>
+      <React.Fragment>
+        <Signup />
         <div>{this.state.message}</div>
         <div>
           <button onClick={this.clickHandler}>
             Click me to see some text changes
           </button>
         </div>
-      </div>
+      </React.Fragment>
     );
   }
 }
