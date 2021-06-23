@@ -7,7 +7,7 @@ import About from "./components/About";
 import Favourite from "./components/Favourite";
 import Experience from "./components/Experience";
 import Example from "./components/Example";
-import Signup from "./components/Signup";
+//import Signup from "./components/Signup";
 import Body from "./components/Body";
 
 process.title = "react_ui";
