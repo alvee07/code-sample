@@ -16,13 +16,16 @@ export class About extends Component {
       method: "get",
       //body: JSON.stringify(body),
     })
-      .then((res) => res.json())
+      .then((res) => {
+        res.json();
+        console.log(response.json());
+      })
       .then(
         (response) => {
           this.setState({
             dataFetched: true,
             data: response.data,
-            isLoaded: true,
+            isLoaded: false,
           });
         },
         (error) => {
@@ -41,13 +44,13 @@ export class About extends Component {
     } else if (!this.state.isLoaded) {
       return <div>Loading...</div>;
     } else {
-      return 
-        <React.render>
-          {data.map((item, i) => {
-            return <h1>item.date</h1>
-          })}
-        </React.render>
-      
+      return;
+      <React.render>
+        {data.map((item, i) => {
+          return <h1>item.date</h1>;
+        })}
+      </React.render>;
+
       // {
       //   data.map((item, i) => {
       //     return <h1>item.date</h1>;
