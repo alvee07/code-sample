@@ -17,7 +17,7 @@ export class Header extends Component {
 
   render() {
     const { title } = this.props;
-    console.log(this.props);
+    //console.log(this.props);
     return (
       <header>
         <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
@@ -33,6 +33,9 @@ export class Header extends Component {
               </Nav.Link>
             </Nav>
             <Nav className="ml-auto">
+              <Nav.Link href="apidata" className={spaceBetweenNavItems}>
+                API
+              </Nav.Link>
               <Nav.Link href="experience" className={spaceBetweenNavItems}>
                 Experience
               </Nav.Link>

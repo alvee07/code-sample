@@ -9,6 +9,7 @@ import Experience from "./components/Experience";
 import Example from "./components/Example";
 //import Signup from "./components/Signup";
 import Body from "./components/Body";
+import ApiData from "./components/ApiData";
 
 process.title = "react_ui";
 function App() {
@@ -21,6 +22,7 @@ function App() {
             <Route exact path="/" component={Body} />
             <Route path="/about" component={About} />
             <Route path="/favourite" component={Favourite} />
+            <Route path="/apidata" component={ApiData} />
             <Route path="/experience" component={Experience} />
             <Route path="/example" component={Example} />
           </Switch>
