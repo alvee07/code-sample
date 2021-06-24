@@ -1,62 +1,73 @@
 import React, { Component } from "react";
 
+// use this to get and render the data
+// https://soshace.com/react-and-ajax-the-art-of-fetching-data-in-react/
 export class About extends Component {
   constructor(props) {
     super(props);
     this.state = {
       isLoaded: false,
       error: null,
-      dataFetched: false,
-      data: [],
+      items: [],
     };
   }
 
   componentDidMount() {
-    fetch("https://alveeapi.azurewebsites.net/weatherforecast", {
-      method: "get",
-      //body: JSON.stringify(body),
-    })
-      .then((res) => {
-        res.json();
-        console.log(response.json());
-      })
-      .then(
-        (response) => {
+    var xhr = new XMLHttpRequest();
+
+    xhr.addEventListener("readystatechange", () => {
+      if (xhr.readyState === 4) {
+        if (xhr.status === 200) {
+          // request successful
+          var response = xhr.responseText,
+            json = JSON.parse(response);
+          //console.log(json);
           this.setState({
-            dataFetched: true,
-            data: response.data,
-            isLoaded: false,
+            isLoaded: true,
+            items: json,
           });
-        },
-        (error) => {
+        } else {
+          // error
           this.setState({
-            dataFetched: true,
-            error,
+            isLoaded: true,
+            error: xhr.responseText,
           });
         }
-      );
+      }
+    });
+
+    xhr.open(
+      "GET",
+      "https://alveeapi.azurewebsites.net/api/customer/all",
+      true
+    );
+    xhr.send();
   }
-
   render() {
-    const { error, data } = this.state;
-    if (error) {
-      return <div>Error: {error.message}</div>;
-    } else if (!this.state.isLoaded) {
-      return <div>Loading...</div>;
-    } else {
-      return;
-      <React.render>
-        {data.map((item, i) => {
-          return <h1>item.date</h1>;
-        })}
-      </React.render>;
+    var body;
 
-      // {
-      //   data.map((item, i) => {
-      //     return <h1>item.date</h1>;
-      //   });
-      // }
+    if (!this.state.isLoaded) {
+      // yet loading
+      body = <div>Loading...</div>;
+    } else if (this.state.error) {
+      // error
+      body = <div>Error occured: {this.state.error}</div>;
+    } else {
+      // success
+
+      var items = this.state.items.map((item) => (
+        <div key={item.customerId}>
+          <p>
+            {item.firstName} {"--"} {item.lastName}
+          </p>
+          <p></p>
+        </div>
+      ));
+
+      body = <div>{items}</div>;
     }
+
+    return body;
   }
 }
 
