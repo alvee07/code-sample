@@ -27,6 +27,7 @@ export class ApiData extends Component {
             isLoaded: true,
             items: json,
           });
+          //console.log(json);
         } else {
           // error
           this.setState({
@@ -59,7 +60,7 @@ export class ApiData extends Component {
       body = <ApiDataTable customersList={this.state.items} />;
     }
 
-    return body;
+    return <div>{this.state.isLoaded && body}</div>;
   }
 }
 
