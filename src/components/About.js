@@ -11,7 +11,11 @@ export class About extends Component {
   }
 
   render() {
-    var body = <div>About page</div>;
+    var body = (
+      <div>
+        <h1>About</h1>
+      </div>
+    );
 
     return body;
   }
