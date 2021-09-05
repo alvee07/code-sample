@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import Table from "react-bootstrap/Table";
 
 export default class ApiDataTable extends Component {
   constructor(props) {
@@ -34,8 +33,8 @@ export default class ApiDataTable extends Component {
     var body;
     if (customers) {
       body = (
-        <div>
-          <Table striped bordered hover size="sm">
+        <div className="table-responsive-sm">
+          <table className="table table-striped table-borderless table-sm">
             <thead>
               <tr>
                 <th>#</th>
@@ -62,7 +61,7 @@ export default class ApiDataTable extends Component {
                 </tr>
               ))}
             </tbody>
-          </Table>
+          </table>
         </div>
       );
     } else {

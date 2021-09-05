@@ -1,65 +1,147 @@
 import React, { Component } from "react";
+import { NavLink } from "react-router-dom";
 import PropTypes from "prop-types"; // impt
-import { Navbar, Nav, NavDropdown } from "react-bootstrap";
 
-const spaceBetweenNavItems = "mx-2";
-
+const customNavItemsCSS = "nav-item mx-2 nav-link-decor";
+const customNavContainerStyle = {
+  paddingBottom: "60px",
+};
+const customNavBrandStyle = {
+  color: "grey",
+};
 export class Header extends Component {
   constructor(props) {
     super(props);
     this.state = {};
   }
 
-  // using default props, if parent comp does not provide any values.
+  // using default props, if parent component does not provide any values.
   static defaultProps = {
     title: "User!",
   };
 
   render() {
     const { title } = this.props;
-    //console.log(this.props);
+    // console.log(this.props);
     return (
-      <header>
-        <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-          <Navbar.Brand href="/">Alvee Akash</Navbar.Brand>
-          <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-          <Navbar.Collapse id="responsive-navbar-nav">
-            <Nav className="mr-auto">
-              <Nav.Link href="about" className={spaceBetweenNavItems}>
-                About
-              </Nav.Link>
-              <Nav.Link href="favourite" className={spaceBetweenNavItems}>
-                Favourite
-              </Nav.Link>
-            </Nav>
-            <Nav className="ml-auto">
-              <Nav.Link href="apidata" className={spaceBetweenNavItems}>
-                API
-              </Nav.Link>
-              <Nav.Link href="experience" className={spaceBetweenNavItems}>
-                Experience
-              </Nav.Link>
-              <Nav.Link href="example" className={spaceBetweenNavItems}>
-                Example
-              </Nav.Link>
-              <NavDropdown title="In Progress" id="collasible-nav-dropdown">
-                <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.2">
-                  Another action
-                </NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.3">
-                  Something
-                </NavDropdown.Item>
-                <NavDropdown.Divider />
-                <NavDropdown.Item href="#action/3.4">
-                  Separated link
-                </NavDropdown.Item>
-              </NavDropdown>
-            </Nav>
-            <Navbar.Text className={spaceBetweenNavItems}>{title}</Navbar.Text>
-          </Navbar.Collapse>
-        </Navbar>
-      </header>
+      <div className="container-fluid" style={customNavContainerStyle}>
+        <nav className="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
+          <div className="container-fluid">
+            <NavLink
+              exact
+              to="/"
+              className="navbar-brand"
+              activeClassName="active"
+              style={customNavBrandStyle}
+            >
+              New Alvee
+            </NavLink>
+            <button
+              className="navbar-toggler"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#navbarNavDropdown"
+              aria-controls="navbarNavDropdown"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span className="navbar-toggler-icon"></span>
+            </button>
+            <div className="collapse navbar-collapse" id="navbarNavDropdown">
+              <ul className="navbar-nav mr-auto">
+                <li className={customNavItemsCSS}>
+                  <NavLink
+                    to="about"
+                    className="nav-link nav-link-decor"
+                    activeClassName="active"
+                  >
+                    About
+                  </NavLink>
+                </li>
+
+                <li className={customNavItemsCSS}>
+                  <NavLink
+                    to="favourite"
+                    className="nav-link nav-link-decor"
+                    activeClassName="active"
+                  >
+                    Favourite
+                  </NavLink>
+                </li>
+              </ul>
+              <ul className="navbar-nav">
+                <li className={customNavItemsCSS}>
+                  <NavLink
+                    to="apidata"
+                    className="nav-link nav-link-decor"
+                    activeClassName="active"
+                  >
+                    API
+                  </NavLink>
+                </li>
+                <li className={customNavItemsCSS}>
+                  <NavLink
+                    to="experience"
+                    className="nav-link nav-link-decor"
+                    activeClassName="active"
+                  >
+                    Experience
+                  </NavLink>
+                </li>
+                <li className={customNavItemsCSS}>
+                  <NavLink
+                    to="example"
+                    className="nav-link nav-link-decor"
+                    activeClassName="active"
+                  >
+                    Example
+                  </NavLink>
+                </li>
+
+                <li className={`nav-item dropdown ${customNavItemsCSS}`}>
+                  <a
+                    className="nav-link dropdown-toggle"
+                    href="/"
+                    id="navbarDropdownMenuLink"
+                    role="button"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                  >
+                    In Progress
+                  </a>
+                  <ul
+                    className="dropdown-menu"
+                    aria-labelledby="navbarDropdownMenuLink"
+                  >
+                    <li>
+                      <a className="dropdown-item" href="#action/3.1">
+                        Action
+                      </a>
+                    </li>
+                    <li>
+                      <a className="dropdown-item" href="#action/3.2">
+                        Another action
+                      </a>
+                    </li>
+                    <li>
+                      <a className="dropdown-item" href="#action/3.3">
+                        Something else here
+                      </a>
+                    </li>
+                    <hr className="dropdown-divider"></hr>
+                    <li>
+                      <a className="dropdown-item" href="#action/3.4">
+                        Something else here
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+              <span className="navbar-text">{title}</span>
+            </div>
+          </div>
+        </nav>
+      </div>
     );
   }
 }

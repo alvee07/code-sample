@@ -1,7 +1,5 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import "bootstrap/dist/css/bootstrap.min.css";
-import { Container } from "react-bootstrap";
 import Header from "./components/Header";
 import About from "./components/About";
 import Favourite from "./components/Favourite";
@@ -16,17 +14,19 @@ function App() {
   return (
     <React.Fragment>
       <Router>
-        <Header />
-        <Container fluid={true}>
-          <Switch>
-            <Route exact path="/" component={Body} />
-            <Route path="/about" component={About} />
-            <Route path="/favourite" component={Favourite} />
-            <Route path="/apidata" component={ApiData} />
-            <Route path="/experience" component={Experience} />
-            <Route path="/example" component={Example} />
-          </Switch>
-        </Container>
+        <div className="App">
+          <Header />
+          <div className="container-fluid">
+            <Switch>
+              <Route exact path="/" component={Body} />
+              <Route path="/about" component={About} />
+              <Route path="/favourite" component={Favourite} />
+              <Route path="/apidata" component={ApiData} />
+              <Route path="/experience" component={Experience} />
+              <Route path="/example" component={Example} />
+            </Switch>
+          </div>
+        </div>
       </Router>
     </React.Fragment>
   );
