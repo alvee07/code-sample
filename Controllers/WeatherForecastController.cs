@@ -26,6 +26,7 @@ namespace react_asp.Controllers
         [HttpGet]
         public IEnumerable<WeatherForecast> Get()
         {
+            System.Threading.Thread.Sleep(2000);
             var rng = new Random();
             return Enumerable.Range(1, 5).Select(index => new WeatherForecast
             {
