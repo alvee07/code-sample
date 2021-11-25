@@ -6,8 +6,9 @@ export class Navigation extends Component {
 
 	constructor(props) {
 		super(props);
-		this.state = { showNav: true };
+		this.state = { showNav: true, showDropdown: false };
 		this.toggleNav = this.toggleNav.bind(this);
+		this.toggleDropdown = this.toggleDropdown.bind(this);
 	}
 
 	toggleNav() {
@@ -16,8 +17,15 @@ export class Navigation extends Component {
 		});
 	}
 
+	toggleDropdown() {
+		console.log(this);
+		this.setState({
+			showDropdown: !this.state.showDropdown,
+		});
+	}
+
 	render() {
-		const { showNav } = this.state;
+		const { showNav, showDropdown } = this.state;
 
 		return (
 			<div className="navbar navbar-expand-lg navbar-light bg-light">
@@ -39,25 +47,27 @@ export class Navigation extends Component {
 				>
 					<ul className="navbar-nav mr-auto">
 						<li className="nav-item">
-							<a className="nav-link" href="#">
-								Link
+							<a className="nav-link" href="/">
+								Home
 							</a>
 						</li>
 						<li className="nav-item dropdown">
 							<a
-								className="nav-link dropdown-toggle"
-								href="#"
-								id="navbarDropdown"
-								role="button"
-								data-toggle="dropdown"
-								aria-haspopup="true"
-								aria-expanded="false"
+								className={
+									'nav-link dropdown-toggle ' + showDropdown
+										? 'show'
+										: ''
+								}
+								onMouseOver={this.toggleDropdown}
+								onMouseLeave={this.toggleDropdown}
 							>
 								Dropdown
 							</a>
 							<div
-								className="dropdown-menu"
-								aria-labelledby="navbarDropdown"
+								className={
+									'dropdown-menu ' +
+									(showDropdown ? 'show' : '')
+								}
 							>
 								<a className="dropdown-item" href="#">
 									Action
@@ -72,8 +82,8 @@ export class Navigation extends Component {
 							</div>
 						</li>
 						<li className="nav-item">
-							<a className="nav-link disabled" href="#">
-								Disabled
+							<a className="nav-link" href="/fetch-data">
+								FetchData
 							</a>
 						</li>
 					</ul>
