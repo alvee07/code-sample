@@ -52,17 +52,17 @@ export class Navigation extends Component {
 							</a>
 						</li>
 						<li className="nav-item dropdown">
-							<a
+							<button
 								className={
 									'nav-link dropdown-toggle ' + showDropdown
 										? 'show'
 										: ''
 								}
-								onMouseOver={this.toggleDropdown}
+								onClick={this.toggleDropdown}
 								onMouseLeave={this.toggleDropdown}
 							>
 								Dropdown
-							</a>
+							</button>
 							<div
 								className={
 									'dropdown-menu ' +
