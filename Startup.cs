@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SpaServices.ReactDevelopmentServer;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -28,8 +29,16 @@ namespace react_asp
 
             services.AddAntiforgery(o =>
             {
-                o.Cookie.Name = "X-CSRF-TOKEN";
+                //o.Cookie.Name = "X-CSRF-TOKEN";
+                o.HeaderName = "x-header-tokenn";
             });
+
+
+            services.AddMvc(options =>
+            {
+                options.Filters.Add(new AutoValidateAntiforgeryTokenAttribute());
+            });
+
 
             // In production, the React files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
@@ -60,20 +69,20 @@ namespace react_asp
 
             var antiforgery = app.ApplicationServices.GetRequiredService<IAntiforgery>();
 
-            //app.Use((context, next) =>
-            //{
-            //    var requestPath = context.Request.Path.Value;
+            app.Use((context, next) =>
+            {
+                var requestPath = context.Request.Path.Value;
 
-            //    if (string.Equals(requestPath, "/", StringComparison.OrdinalIgnoreCase)
-            //        || string.Equals(requestPath, "/index.html", StringComparison.OrdinalIgnoreCase))
-            //    {
-            //        var tokenSet = antiforgery.GetAndStoreTokens(context);
-            //        context.Response.Cookies.Append("XSRF-TOKEN", tokenSet.RequestToken!,
-            //            new CookieOptions { HttpOnly = true, Secure = true, SameSite = SameSiteMode.Strict });
-            //    }
+                if (string.Equals(requestPath, "/", StringComparison.OrdinalIgnoreCase)
+                    || string.Equals(requestPath, "/index.html", StringComparison.OrdinalIgnoreCase))
+                {
+                    var tokenSet = antiforgery.GetAndStoreTokens(context);
+                    context.Response.Cookies.Append("XSRF-TOKEN", tokenSet.RequestToken!,
+                        new CookieOptions { HttpOnly = true, Secure = true, SameSite = SameSiteMode.Strict });
+                }
 
-            //    return next(context);
-            //});
+                return next(context);
+            });
 
             app.UseEndpoints(endpoints =>
             {

@@ -24,6 +24,7 @@ namespace react_asp.Controllers
         }
 
         [HttpGet]
+        [AutoValidateAntiforgeryToken]
         public IEnumerable<WeatherForecast> Get()
         {
             System.Threading.Thread.Sleep(2000);
