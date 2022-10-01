@@ -1,0 +1,5 @@
+This is a file which contains a lot of lines of text.
+This file will be opened in Text class second constructor.
+Then I will display the file content.
+This is the fourth line of this text file.
+This is the last line of this text file.

@@ -1,0 +1,6 @@
+This is Alvee. I am writing C++ program.
+This program is first assignment.
+I never write C++ code in my life.
+I hope everything goes well and I get good marks.
+I wanna learn a lot of coding too.
+It is good to know some low-level language.

@@ -1,0 +1,10 @@
+alvee	5.93	1
+fariah	2.03	0
+maddy	3.03	1
+Alex	2.03	1
+Matt	1.03	0
+Gavin	3.93	1
+Amber	2.03	0
+rama	3.03	1
+Daniel	2.03	1
+zhane	1.03	0
