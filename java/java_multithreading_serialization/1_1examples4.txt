@@ -1,0 +1,5 @@
+Event=ThermostatNight,time=0
+Event=LightOn,time=2000
+Event=LightOff,time=4000
+Event=PowerOut,time=7000
+Event=Terminate,time=12000
